@@ -1,0 +1,113 @@
+/* ===================================================================
+   Viva La Vie — mobile layer
+   Everything here is scoped to <=860px and overrides the page's inline
+   styles (hence the !important). Desktop is untouched.
+   =================================================================== */
+
+/* Hidden by default; the media query below turns them on for phones. */
+.vlv-mnav-btn,
+.vlv-mnav { display: none; }
+
+@media (max-width: 860px) {
+
+  /* The page ships without a box-sizing reset; on phones the padded, fluid
+     containers add their padding on top of a full-width box and overflow.
+     Scoping border-box to mobile fixes that without touching desktop. */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  /* ---- Nav: hide the wrapping desktop links, show a hamburger ---- */
+  header nav { display: none !important; }
+
+  .vlv-mnav-btn {
+    display: flex; position: fixed; top: 15px; right: 14px; z-index: 10000;
+    width: 46px; height: 46px; flex-direction: column;
+    align-items: center; justify-content: center; gap: 5px;
+    border: 0; padding: 0; cursor: pointer;
+    background: rgba(3, 15, 18, .34); border-radius: 13px;
+    -webkit-backdrop-filter: blur(7px); backdrop-filter: blur(7px);
+    transition: background .3s ease;
+  }
+  .vlv-mnav-btn span {
+    display: block; width: 22px; height: 2px; border-radius: 2px; background: #f6f2e8;
+    transition: transform .32s cubic-bezier(.22,1,.36,1), opacity .2s ease;
+  }
+  html.vlv-menu-open .vlv-mnav-btn { background: transparent; }
+  html.vlv-menu-open .vlv-mnav-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  html.vlv-menu-open .vlv-mnav-btn span:nth-child(2) { opacity: 0; }
+  html.vlv-menu-open .vlv-mnav-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ---- Full-width drop-down menu ---- */
+  .vlv-mnav {
+    display: flex; position: fixed; inset: 0; z-index: 9990;
+    flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+    padding: 96px 28px 44px;
+    background: radial-gradient(120% 100% at 80% 0%, #0d3038 0%, #051a1f 52%, #030f12 100%);
+    opacity: 0; visibility: hidden; transform: translateY(-14px);
+    transition: opacity .42s ease, transform .42s cubic-bezier(.22,1,.36,1), visibility .42s;
+  }
+  html.vlv-menu-open .vlv-mnav { opacity: 1; visibility: visible; transform: none; }
+
+  .vlv-mnav a {
+    font-family: 'Marcellus', Georgia, serif; font-size: 30px; line-height: 1;
+    letter-spacing: .01em; color: #f6f2e8; text-decoration: none;
+    display: flex; align-items: center; gap: 13px; padding: 14px 8px;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1), color .25s ease;
+  }
+  html.vlv-menu-open .vlv-mnav a { opacity: 1; transform: none; }
+  .vlv-mnav a:nth-child(1) { transition-delay: .05s; }
+  .vlv-mnav a:nth-child(2) { transition-delay: .10s; }
+  .vlv-mnav a:nth-child(3) { transition-delay: .15s; }
+  .vlv-mnav a:nth-child(4) { transition-delay: .20s; }
+  .vlv-mnav a:nth-child(5) { transition-delay: .25s; }
+
+  .vlv-mnav a[aria-current="page"] { color: #6adfe9; }
+  .vlv-mnav a[aria-current="page"]::before {
+    content: ""; width: 9px; height: 9px; flex: none;
+    background: radial-gradient(circle at 40% 68%, #6adfe9, #1cadc2 60%, #0b6b7a);
+    border-radius: 0 62% 62% 62%; transform: rotate(45deg);
+  }
+
+  .vlv-mnav .vlv-mnav-book {
+    margin-top: 26px; font-family: 'Jost', system-ui, sans-serif; font-weight: 500;
+    font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase;
+    color: #051a1f; background: #1cadc2; padding: 17px 34px; border-radius: 3px;
+    transition-delay: .30s;
+  }
+  .vlv-mnav .vlv-mnav-book::before { display: none; }
+
+  .vlv-mnav .vlv-mnav-meta {
+    margin-top: 22px; font-family: 'Jost', system-ui, sans-serif; font-size: 12.5px;
+    letter-spacing: .05em; line-height: 1.9; color: rgba(246, 242, 232, .58); text-align: center;
+    opacity: 0; transition: opacity .5s ease .4s;
+  }
+  html.vlv-menu-open .vlv-mnav .vlv-mnav-meta { opacity: 1; }
+  .vlv-mnav .vlv-mnav-meta a { display: inline; font: inherit; padding: 0; color: #6adfe9; opacity: 1; transform: none; }
+
+  html.vlv-menu-open { overflow: hidden; }
+
+  /* ---- Layout: fit the phone, cut the clutter ----
+     Targets use data-m markers added at build time (see build.js) because the
+     runtime re-serializes inline styles, which breaks [style*=] hooks. */
+
+  /* Collapse the fixed two-column grids (hero, build-a-drip, about) */
+  [data-m="split"] { grid-template-columns: 1fr !important; gap: clamp(28px, 7vw, 44px) !important; }
+
+  /* Drop the small floating decorations that overflow / crowd on phones */
+  [data-m="float"] { display: none !important; }
+
+  /* Tame the tall arched hero / about photos so copy stays the focus */
+  [data-m="arch"] { max-width: 320px; margin-left: auto; margin-right: auto; }
+
+  /* Smaller, tidier primary/secondary buttons */
+  [data-m="cta"] {
+    padding: 15px 22px !important; font-size: 11.5px !important;
+    flex: 1 1 auto; justify-content: center; text-align: center;
+  }
+
+  /* Booking section: phone cards go full width and trim down */
+  [data-m="phonecard"] { min-width: 0 !important; width: 100%; padding: 17px 24px !important; }
+
+  /* Hide the promo bar on phones — it only bleeds behind the fixed header */
+  [data-m="announce"] { display: none !important; }
+}
