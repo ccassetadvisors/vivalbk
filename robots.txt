@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vivalavie.net/sitemap.xml
+Sitemap: https://vivalbk.vercel.app/sitemap.xml
