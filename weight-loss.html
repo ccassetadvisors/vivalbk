@@ -43,8 +43,10 @@
   <!-- Structured data -->
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://vivalavie.net/weight-loss.html#webpage","url":"https://vivalavie.net/weight-loss.html","name":"Medical Weight Loss in Lubbock — Semaglutide & Tirzepatide | Viva La Vie","description":"Physician-guided medical weight loss in Lubbock: Semaglutide & Tirzepatide programs with weekly registered-nurse support and metabolic boosters. Real medicine, real accountability.","isPartOf":{"@id":"https://vivalavie.net/#website"},"about":{"@id":"https://vivalavie.net/#business"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vivalavie.net/"},{"@type":"ListItem","position":2,"name":"Medical Weight Loss in Lubbock","item":"https://vivalavie.net/weight-loss.html"}]},{"@type":"Service","name":"Medical Weight Loss in Lubbock","description":"Physician-guided medical weight loss in Lubbock: Semaglutide & Tirzepatide programs with weekly registered-nurse support and metabolic boosters. Real medicine, real accountability.","provider":{"@id":"https://vivalavie.net/#business"},"areaServed":{"@type":"City","name":"Lubbock"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Am I a candidate for Semaglutide or Tirzepatide?","acceptedAnswer":{"@type":"Answer","text":"Candidacy depends on your health history, current medications, and goals — determined at your consult with physician oversight. If GLP-1 therapy is not appropriate for you, we will tell you honestly and suggest alternatives."}},{"@type":"Question","name":"What is the difference between Semaglutide and Tirzepatide?","acceptedAnswer":{"@type":"Answer","text":"Both are once-weekly GLP-1 injections that reduce appetite and increase fullness. Tirzepatide additionally targets GIP receptors — a dual action associated with significant weight loss in clinical trials. Your provider will recommend the right fit."}},{"@type":"Question","name":"What about side effects?","acceptedAnswer":{"@type":"Answer","text":"The most common are digestive — nausea, constipation, and fatigue, especially at dose increases. Because you see a nurse weekly, side effects get managed early: dose adjustments, Zofran, and hydration drips when needed."}},{"@type":"Question","name":"How fast will I lose weight?","acceptedAnswer":{"@type":"Answer","text":"Results vary and steady is healthy. Most clients see gradual, consistent loss over months — not weeks. Anyone promising instant results isn't being straight with you; we will be."}},{"@type":"Question","name":"How much does the program cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing depends on medication and dose. Text Lisa at 806-790-1396 or Christy at 806-777-5371 and we will walk you through exact program pricing before you commit to anything."}}]}]}</script>
 
-  <!-- Mobile layer -->
+  <!-- Enhancement + mobile layers -->
+  <link rel="stylesheet" href="assets/enhance.css">
   <link rel="stylesheet" href="assets/mobile.css">
+  <script defer src="assets/fx.js"></script>
   <script defer src="assets/mobile-nav.js"></script>
 
   <style>
@@ -69,6 +71,7 @@
 </head>
 <body>
   <a class="vlv-skip" href="#content">Skip to content</a>
+  <div id="vlv-cursor-glow" aria-hidden="true"></div>
   <button class="vlv-mnav-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="vlv-mnav"><span></span><span></span><span></span></button>
   <nav id="vlv-mnav" class="vlv-mnav" aria-label="Mobile menu" aria-hidden="true">
     <a href="index.html">Home</a>
@@ -423,11 +426,11 @@
         </span>
       </a>
       <nav style="display:flex;align-items:center;gap:clamp(14px,2vw,32px);flex-wrap:wrap;justify-content:flex-end">
-        <a href="index.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">Home</a>
-        <a href="iv-therapy.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">IV Therapy</a>
-        <a href="aesthetics.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">Aesthetics</a>
-        <a href="weight-loss.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua2);text-decoration:none;border-bottom:1px solid var(--aqua);padding-bottom:2px">Weight Loss</a>
-        <a href="events.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">Events</a>
+        <a href="index.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(246,242,232,.8);transition:color .3s" style-hover="color:var(--aqua2)">Home</a>
+        <a href="iv-therapy.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(246,242,232,.8);transition:color .3s" style-hover="color:var(--aqua2)">IV Therapy</a>
+        <a href="aesthetics.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(246,242,232,.8);transition:color .3s" style-hover="color:var(--aqua2)">Aesthetics</a>
+        <a href="weight-loss.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--aqua2);border-bottom:1px solid var(--aqua);padding-bottom:2px">Weight Loss</a>
+        <a href="events.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(246,242,232,.8);transition:color .3s" style-hover="color:var(--aqua2)">Events</a>
         <a href="tel:8067901396" style="font-weight:500;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--aqua);text-decoration:none;padding:12px 24px;border-radius:2px;transition:background .3s" style-hover="background:var(--mist)">Book Now</a>
       </nav>
     </div>

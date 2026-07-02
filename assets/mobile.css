@@ -110,4 +110,29 @@
 
   /* Hide the promo bar on phones — it only bleeds behind the fixed header */
   [data-m="announce"] { display: none !important; }
+
+  /* Hero: kill the top drip-line + falling dot that ran into the wording */
+  [data-m="herofx"] { display: none !important; }
+
+  /* "What We Offer": compact 2-up tiles so all four are visible with little
+     scrolling — drop the description + tag pills, keep title / price / link */
+  [data-m="svcgrid"] { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  [data-m="svccard"] { padding: 16px 15px !important; border-radius: 12px !important; gap: 7px !important; }
+  [data-m="svccard"] p { display: none !important; }
+  [data-m="svccard"] > div:last-of-type { display: none !important; }                     /* tag pills */
+  [data-m="svccard"] > div:first-of-type > span:last-child { display: none !important; }  /* price eyebrow (wraps ugly) */
+  [data-m="svccard"] h3 { font-size: 20px !important; line-height: 1.12 !important; }
+  [data-m="svccard"] > span:last-child { margin-top: 6px !important; padding-top: 0 !important; }  /* "Explore →" hugs title */
+
+  /* Sub-page list cards (the 12-drip menu, boosters, etc.): the fixed
+     name/description/price columns squished text to one word per line.
+     Stack them and tighten. */
+  [data-m="listcard"] {
+    grid-template-columns: 1fr !important;
+    gap: 5px !important;
+    align-items: start !important;
+    padding: 16px 18px !important;
+    text-align: left !important;
+  }
+  [data-m="listcard"] p { font-size: 13.5px !important; line-height: 1.55 !important; }
 }

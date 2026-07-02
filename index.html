@@ -43,8 +43,10 @@
   <!-- Structured data -->
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://vivalavie.net/#org","name":"Viva La Vie","url":"https://vivalavie.net/","logo":"https://vivalavie.net/favicon.svg","email":"contact@vivalavie.net","telephone":"+1-806-790-1396"},{"@type":["MedicalBusiness","HealthAndBeautyBusiness"],"@id":"https://vivalavie.net/#business","name":"Viva La Vie — Aesthetics & Drip Bar","description":"Lubbock's mobile, nurse-led IV therapy, wellness injections, medical weight loss, and aesthetics. Registered nurses under physician oversight, delivered to your home, hotel, or event.","url":"https://vivalavie.net/","telephone":"+1-806-790-1396","email":"contact@vivalavie.net","image":"https://vivalavie.net/assets/og-image.jpg","logo":"https://vivalavie.net/favicon.svg","priceRange":"$","currenciesAccepted":"USD","medicalSpecialty":["Wellness","PlasticSurgery"],"address":{"@type":"PostalAddress","addressLocality":"Lubbock","addressRegion":"TX","addressCountry":"US"},"areaServed":{"@type":"City","name":"Lubbock","containedInPlace":{"@type":"State","name":"Texas"}},"founder":[{"@type":"Person","name":"Lisa Velasquez","jobTitle":"Registered Nurse (RN-BSN)","telephone":"+1-806-790-1396"},{"@type":"Person","name":"Christy Villalobos","jobTitle":"Registered Nurse (RN-BSN)","telephone":"+1-806-777-5371"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"21:00"}],"availableService":[{"@type":"MedicalTherapy","name":"IV Therapy & Drip Bar"},{"@type":"Service","name":"Aesthetics & Injectables"},{"@type":"MedicalTherapy","name":"Medical Weight Loss"},{"@type":"Service","name":"Mobile Drip Bar for Events"}]},{"@type":"WebSite","@id":"https://vivalavie.net/#website","url":"https://vivalavie.net/","name":"Viva La Vie — Aesthetics & Drip Bar","publisher":{"@id":"https://vivalavie.net/#org"},"inLanguage":"en-US"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you really come to me?","acceptedAnswer":{"@type":"Answer","text":"Yes — that's our whole thing. We bring the full drip bar to your home, hotel, office, or event anywhere in Lubbock and surrounding areas. Prefer to come to us? We offer in-clinic appointments too."}},{"@type":"Question","name":"Who administers the treatments?","acceptedAnswer":{"@type":"Answer","text":"Every drip, shot, and treatment is administered by a registered nurse (RN-BSN) under physician oversight, using pharmaceuticals from licensed sources. Your safety is never a shortcut."}},{"@type":"Question","name":"How long does a visit take?","acceptedAnswer":{"@type":"Answer","text":"Most IV infusions take about 45 minutes from setup to finish. Wellness shots are just a few minutes. We schedule enough time so nothing ever feels rushed."}},{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"Lubbock and the surrounding communities. If you are just outside the area or planning a larger event, reach out — we will do our best to make it work."}},{"@type":"Question","name":"How do I book and pay?","acceptedAnswer":{"@type":"Answer","text":"Call or text Lisa at 806-790-1396 or Christy at 806-777-5371, or email contact@vivalavie.net. We confirm your time, location, and drip, and handle payment at your appointment."}},{"@type":"Question","name":"Can you do group and event bookings?","acceptedAnswer":{"@type":"Answer","text":"Absolutely — bachelorettes, game days, corporate wellness, and campus events are some of our favorites. Message us with your date and headcount for a custom group plan."}}]}]}</script>
 
-  <!-- Mobile layer -->
+  <!-- Enhancement + mobile layers -->
+  <link rel="stylesheet" href="assets/enhance.css">
   <link rel="stylesheet" href="assets/mobile.css">
+  <script defer src="assets/fx.js"></script>
   <script defer src="assets/mobile-nav.js"></script>
 
   <style>
@@ -69,6 +71,7 @@
 </head>
 <body>
   <a class="vlv-skip" href="#content">Skip to content</a>
+  <div id="vlv-cursor-glow" aria-hidden="true"></div>
   <button class="vlv-mnav-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="vlv-mnav"><span></span><span></span><span></span></button>
   <nav id="vlv-mnav" class="vlv-mnav" aria-label="Mobile menu" aria-hidden="true">
     <a href="index.html" aria-current="page">Home</a>
@@ -437,12 +440,11 @@
         </span>
       </a>
       <nav style="display:flex;align-items:center;gap:clamp(14px,2vw,32px);flex-wrap:wrap;justify-content:flex-end">
-        <a href="#services" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">Services</a>
-        <a href="iv-therapy.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">IV Therapy</a>
-        <a href="aesthetics.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">Aesthetics</a>
-        <a href="weight-loss.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">Weight Loss</a>
-        <a href="events.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">Events</a>
-        <a href="#about" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.8);text-decoration:none;transition:color .3s" style-hover="color:var(--aqua2)">About</a>
+        <a href="index.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--aqua2);border-bottom:1px solid var(--aqua);padding-bottom:2px">Home</a>
+        <a href="iv-therapy.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(246,242,232,.8);transition:color .3s" style-hover="color:var(--aqua2)">IV Therapy</a>
+        <a href="aesthetics.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(246,242,232,.8);transition:color .3s" style-hover="color:var(--aqua2)">Aesthetics</a>
+        <a href="weight-loss.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(246,242,232,.8);transition:color .3s" style-hover="color:var(--aqua2)">Weight Loss</a>
+        <a href="events.html" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(246,242,232,.8);transition:color .3s" style-hover="color:var(--aqua2)">Events</a>
         <a href="tel:8067901396" style="font-weight:500;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--aqua);text-decoration:none;padding:12px 24px;border-radius:2px;transition:background .3s" style-hover="background:var(--mist)">Book Now</a>
       </nav>
     </div>
@@ -455,8 +457,8 @@
     <div ref="{{ setGlow }}" style="position:absolute;top:0;left:0;width:620px;height:620px;background:radial-gradient(circle,rgba(28,173,194,.14),rgba(28,173,194,0) 65%);filter:blur(30px);pointer-events:none;will-change:transform"></div>
     <div style="position:absolute;inset:0;background:repeating-linear-gradient(118deg,rgba(210,237,241,.028) 0 1px,rgba(210,237,241,0) 1px 54px);pointer-events:none"></div>
     <!-- decorative IV drip line -->
-    <div style="position:absolute;top:0;left:50%;width:1px;height:190px;background:linear-gradient(var(--aqua),rgba(28,173,194,0));opacity:.5;pointer-events:none"></div>
-    <div style="position:absolute;top:8px;left:calc(50% - 5px);width:10px;height:10px;background:radial-gradient(circle at 32% 30%,var(--aqua2),var(--aqua) 55%,var(--aqua-deep));border-radius:62% 62% 62% 0;animation:vlvDrip 3.6s ease-in infinite;pointer-events:none"></div>
+    <div data-m="herofx" style="position:absolute;top:0;left:50%;width:1px;height:190px;background:linear-gradient(var(--aqua),rgba(28,173,194,0));opacity:.5;pointer-events:none"></div>
+    <div data-m="herofx" style="position:absolute;top:8px;left:calc(50% - 5px);width:10px;height:10px;background:radial-gradient(circle at 32% 30%,var(--aqua2),var(--aqua) 55%,var(--aqua-deep));border-radius:62% 62% 62% 0;animation:vlvDrip 3.6s ease-in infinite;pointer-events:none"></div>
 
     <div data-m="split" style="position:relative;max-width:1340px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(34px,5vw,80px);align-items:center;width:100%">
       <div ref="{{ setLock }}" style="min-width:0;will-change:transform">
@@ -541,7 +543,7 @@
   </div>
 
   <!-- ===== WHY ===== -->
-  <section style="background:var(--ivory);padding:clamp(80px,12vh,132px) 0">
+  <section data-m="lightsec" style="background:var(--ivory);padding:clamp(80px,12vh,132px) 0">
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
       <div data-reveal="0" style="text-align:center">
         <span style="font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--aqua-deep)">Why Viva La Vie</span>
@@ -585,8 +587,8 @@
         <p style="font-weight:300;font-size:15px;line-height:1.7;color:rgba(5,26,31,.6);max-width:330px;margin:0">Four studios, one standard of nurse-led care. Start where you are today — every path leads to feeling like yourself again.</p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(18px,2.2vw,28px)">
-        <a href="iv-therapy.html" data-reveal="0" style="background:var(--ivory2);border:1px solid rgba(5,26,31,.1);border-radius:8px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease" style-hover="transform:translateY(-6px);box-shadow:0 26px 56px rgba(5,26,31,.14);border-color:rgba(28,173,194,.55)">
+      <div data-m="svcgrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(18px,2.2vw,28px)">
+        <a data-m="svccard" href="iv-therapy.html" data-reveal="0" style="background:var(--ivory2);border:1px solid rgba(5,26,31,.1);border-radius:8px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease" style-hover="transform:translateY(-6px);box-shadow:0 26px 56px rgba(5,26,31,.14);border-color:rgba(28,173,194,.55)">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
             <span style="font-family:var(--script);font-style:italic;font-size:22px;color:var(--gold);line-height:1">01</span>
             <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--aqua-deep)">From $99</span>
@@ -601,7 +603,7 @@
           </div>
           <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua-deep);margin-top:auto;padding-top:12px">Explore IV Therapy →</span>
         </a>
-        <a href="aesthetics.html" data-reveal="0.08" style="background:var(--ivory2);border:1px solid rgba(5,26,31,.1);border-radius:8px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease" style-hover="transform:translateY(-6px);box-shadow:0 26px 56px rgba(5,26,31,.14);border-color:rgba(28,173,194,.55)">
+        <a data-m="svccard" href="aesthetics.html" data-reveal="0.08" style="background:var(--ivory2);border:1px solid rgba(5,26,31,.1);border-radius:8px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease" style-hover="transform:translateY(-6px);box-shadow:0 26px 56px rgba(5,26,31,.14);border-color:rgba(28,173,194,.55)">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
             <span style="font-family:var(--script);font-style:italic;font-size:22px;color:var(--gold);line-height:1">02</span>
             <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--aqua-deep)">Xeomin $10/unit</span>
@@ -617,7 +619,7 @@
           </div>
           <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua-deep);margin-top:auto;padding-top:12px">Explore Aesthetics →</span>
         </a>
-        <a href="weight-loss.html" data-reveal="0.16" style="background:var(--ivory2);border:1px solid rgba(5,26,31,.1);border-radius:8px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease" style-hover="transform:translateY(-6px);box-shadow:0 26px 56px rgba(5,26,31,.14);border-color:rgba(28,173,194,.55)">
+        <a data-m="svccard" href="weight-loss.html" data-reveal="0.16" style="background:var(--ivory2);border:1px solid rgba(5,26,31,.1);border-radius:8px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease" style-hover="transform:translateY(-6px);box-shadow:0 26px 56px rgba(5,26,31,.14);border-color:rgba(28,173,194,.55)">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
             <span style="font-family:var(--script);font-style:italic;font-size:22px;color:var(--gold);line-height:1">03</span>
             <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--aqua-deep)">Weekly programs</span>
@@ -632,7 +634,7 @@
           </div>
           <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua-deep);margin-top:auto;padding-top:12px">Explore Weight Loss →</span>
         </a>
-        <a href="events.html" data-reveal="0.24" style="background:var(--ivory2);border:1px solid rgba(5,26,31,.1);border-radius:8px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease" style-hover="transform:translateY(-6px);box-shadow:0 26px 56px rgba(5,26,31,.14);border-color:rgba(28,173,194,.55)">
+        <a data-m="svccard" href="events.html" data-reveal="0.24" style="background:var(--ivory2);border:1px solid rgba(5,26,31,.1);border-radius:8px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease" style-hover="transform:translateY(-6px);box-shadow:0 26px 56px rgba(5,26,31,.14);border-color:rgba(28,173,194,.55)">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
             <span style="font-family:var(--script);font-style:italic;font-size:22px;color:var(--gold);line-height:1">04</span>
             <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--aqua-deep)">Group pricing</span>
@@ -786,7 +788,7 @@
   </section>
 
   <!-- ===== TESTIMONIALS ===== -->
-  <section style="background:var(--sand);padding:clamp(80px,12vh,130px) 0">
+  <section data-m="lightsec" style="background:var(--sand);padding:clamp(80px,12vh,130px) 0">
     <div data-reveal="0" style="max-width:860px;margin:0 auto;padding:0 clamp(20px,4vw,56px);text-align:center">
       <span style="font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--aqua-deep)">Loved in Lubbock</span>
       <div style="font-family:var(--serif);font-size:20px;color:var(--gold);letter-spacing:.14em;margin:20px 0 8px">★★★★★</div>
