@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://vivalbk.vercel.app/sitemap.xml
