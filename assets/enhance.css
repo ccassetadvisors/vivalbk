@@ -1,0 +1,56 @@
+/* ===================================================================
+   Viva La Vie — desktop/general enhancement layer ("pizazz").
+   Loaded on every page. Mobile-specific overrides live in mobile.css.
+   =================================================================== */
+
+/* ---- Global cursor glow (the hero light, now site-wide) ---- */
+#vlv-cursor-glow {
+  position: fixed; top: 0; left: 0; width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(28,173,194,.20), rgba(28,173,194,0) 62%);
+  pointer-events: none; z-index: 35; mix-blend-mode: screen; will-change: transform;
+  transform: translate3d(-9999px, -9999px, 0);
+}
+@media (hover: none), (pointer: coarse) { #vlv-cursor-glow { display: none; } }
+
+/* ---- Fine grain texture over the whole page (adds richness/depth) ---- */
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 2; opacity: .05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Richer section backgrounds + ambient glows (light sections) ---- */
+#services { background: linear-gradient(180deg, var(--sand) 0%, #ede4d1 100%) !important; }
+#services, #how, #about, [data-m="lightsec"],
+[data-screen-label="Moments"], [data-screen-label="FAQ"] { position: relative; }
+#services::before, #how::before, #about::before, [data-m="lightsec"]::before,
+[data-screen-label="Moments"]::before, [data-screen-label="FAQ"]::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(58% 46% at 88% -4%, rgba(28,173,194,.07), transparent 70%),
+    radial-gradient(46% 40% at 4% 104%, rgba(198,161,91,.06), transparent 72%);
+}
+/* keep each section's content above its glow */
+#services > *, #how > *, #about > *, [data-m="lightsec"] > *,
+[data-screen-label="Moments"] > *, [data-screen-label="FAQ"] > * { position: relative; z-index: 1; }
+
+/* ---- "What We Offer" grid: balanced, no lonely orphan card ---- */
+@media (min-width: 1120px) { [data-m="svcgrid"] { grid-template-columns: repeat(4, 1fr) !important; } }
+@media (min-width: 861px) and (max-width: 1119px) { [data-m="svcgrid"] { grid-template-columns: repeat(2, 1fr) !important; } }
+
+/* ---- Upgraded service cards: depth + animated top accent ---- */
+[data-m="svccard"] {
+  background: linear-gradient(165deg, #ffffff 0%, var(--ivory2) 100%) !important;
+  box-shadow: 0 1px 2px rgba(5,26,31,.05), 0 22px 46px -26px rgba(5,26,31,.30);
+  position: relative; overflow: hidden;
+}
+[data-m="svccard"]::after {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--aqua), var(--gold));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .55s cubic-bezier(.22,1,.36,1);
+}
+[data-m="svccard"]:hover::after { transform: scaleX(1); }
+
+/* ---- Dark "list" cards (drip menu etc.): subtle glow on hover ---- */
+[data-m="listcard"] { position: relative; }
